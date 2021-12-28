@@ -2,3 +2,4 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('genre') }}'><i class='nav-icon la la-question'></i> Genres</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('producer') }}'><i class='nav-icon la la-question'></i> Producers</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('movie') }}'><i class='nav-icon la la-question'></i> Movies</a></li>
