@@ -26,7 +26,7 @@ class GenreRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required|min:3|max:255'
         ];
     }
 
@@ -50,7 +50,9 @@ class GenreRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'name.required' => 'Name is required',
+            'name.min' => 'Name is too short',
+            'name.max' => 'Name is too long',
         ];
     }
 }
