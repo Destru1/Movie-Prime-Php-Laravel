@@ -41,13 +41,7 @@ private function getFieldsData($show = FALSE) {
                  'label' =>'Age restricted',
                  'type' => 'boolean'
             ],
-            [
-                'label' => "Movie Poster",
-                'name' => "image",
-                'type' => 'image',
-                'crop' => true, // set to true to allow cropping, false to disable
-                'aspect_ratio' => 1, // omit or set to 0 to allow any aspect ratio
-            ],
+
             [    // Select2Multiple = n-n relationship (with pivot table)
                 'label'     => "Genres",
                 'type'      => ($show ? "select": 'select2_multiple'),
@@ -67,7 +61,14 @@ private function getFieldsData($show = FALSE) {
                             'model'     => "App\Models\Producer", // foreign key model
                             'attribute' => 'last_name', // foreign key attribute that is shown to user
                             'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
-                        ]
+                        ],
+                        [
+                                         'label' => "Movie Poster",
+                                         'name' => "image",
+                                         'type' => 'image',
+                                         'crop' => true, // set to true to allow cropping, false to disable
+                                         'aspect_ratio' => 1, // omit or set to 0 to allow any aspect ratio
+                                     ],
         ];
     }
     /**
