@@ -26,7 +26,10 @@ class ProducerRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'first_name' => 'required|min:2|max:255',
+            'last_name' => 'required|min:2|max:255',
+            'age' => 'required|min:16|max:99',
+            'nationality' => 'required|min:4|max:255',
         ];
     }
 
@@ -50,7 +53,20 @@ class ProducerRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+           'first_name.required' =>'First name is required.',
+           'first_name.min' =>'First name must be between 2 and 255 characters.',
+           'first_name.max' =>'First name must be between 2 and 255 characters.',
+
+           'last_name.required' =>'Last name is required.',
+            'last_name.min' =>'Last name must be between 2 and 255 characters.',
+            'last_name.max' =>'Last name must be between 2 and 255 characters.',
+
+            'age.required' => 'Age is required',
+            'age.min' => 'Age must be between 16 and 99.',
+            'age.max' => 'Age must be between 16 and 99.',
+
+
+
         ];
     }
 }

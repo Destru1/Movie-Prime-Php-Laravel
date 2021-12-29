@@ -26,7 +26,11 @@ class MovieRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'movie_name' => 'required|min:5|max:255',
+            'release_year' => 'required|min:1960|max:2030',
+            'language' => 'required|min:3|max:255',
+            'genre_id' =>'required',
+            'producer_id' =>'required',
         ];
     }
 
@@ -50,7 +54,16 @@ class MovieRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'movie_name.required' =>'Movie name is required.',
+            'movie_name.min' =>'Movie name must be between 5 and 255 characters.',
+            'movie_name.max' =>'Movie name must be between 5 and 255 characters.',
+
+            'release_year.min' => 'Year must be between 1960 and 2030.',
+            'release_year.max' => 'Year must be between 1960 and 2030.',
+
+            'genre_id.required' =>'Choose genre.',
+            
+            'producer_id.required' =>'Choose producer.',
         ];
     }
 }
