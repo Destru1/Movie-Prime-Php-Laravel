@@ -41,6 +41,13 @@ private function getFieldsData($show = FALSE) {
                  'label' =>'Age restricted',
                  'type' => 'boolean'
             ],
+            [
+                'label' => "Movie Poster",
+                'name' => "image",
+                'type' => 'image',
+                'crop' => true, // set to true to allow cropping, false to disable
+                'aspect_ratio' => 1, // omit or set to 0 to allow any aspect ratio
+            ],
             [    // Select2Multiple = n-n relationship (with pivot table)
                 'label'     => "Genres",
                 'type'      => ($show ? "select": 'select2_multiple'),
@@ -58,7 +65,7 @@ private function getFieldsData($show = FALSE) {
             // optional
                             'entity'    => 'producers', // the method that defines the relationship in your Model
                             'model'     => "App\Models\Producer", // foreign key model
-                            'attribute' => 'name', // foreign key attribute that is shown to user
+                            'attribute' => 'last_name', // foreign key attribute that is shown to user
                             'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
                         ]
         ];
@@ -85,19 +92,8 @@ private function getFieldsData($show = FALSE) {
      */
     protected function setupListOperation()
     {
-        CRUD::column('id');
-        CRUD::column('movie_name');
-        //CRUD::column('release_year');
-        CRUD::column('language');
-        CRUD::column('is_age_restricted');
-        CRUD::column('created_at');
-        //CRUD::column('updated_at');
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addColumns($this->getFieldsData(TRUE));
     }
 
     /**
