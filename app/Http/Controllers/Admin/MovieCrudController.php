@@ -19,6 +19,50 @@ class MovieCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+private function getFieldsData($show = FALSE) {
+        return [
+[
+                'name'=> 'movie_name',
+                'label' => 'Movie name',
+                'type'=> 'text'
+            ],
+            [
+                'name' => 'release_year',
+                'label' => 'Release year',
+                'type' => 'number'
+            ],
+            [
+                'name' =>'language',
+                'label' =>'Language',
+                'type' => 'text'
+            ],
+            [
+                 'name' =>'is_age_restricted',
+                 'label' =>'Age restricted',
+                 'type' => 'boolean'
+            ],
+            [    // Select2Multiple = n-n relationship (with pivot table)
+                'label'     => "Genres",
+                'type'      => ($show ? "select": 'select2_multiple'),
+                'name'      => 'genres', // the method that defines the relationship in your Model
+// optional
+                'entity'    => 'genres', // the method that defines the relationship in your Model
+                'model'     => "App\Models\Genre", // foreign key model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
+            [    // Select2Multiple = n-n relationship (with pivot table)
+                            'label'     => "Producers",
+                            'type'      => ($show ? "select": 'select2_multiple'),
+                            'name'      => 'producers', // the method that defines the relationship in your Model
+            // optional
+                            'entity'    => 'producers', // the method that defines the relationship in your Model
+                            'model'     => "App\Models\Producer", // foreign key model
+                            'attribute' => 'name', // foreign key attribute that is shown to user
+                            'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+                        ]
+        ];
+    }
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *
@@ -29,6 +73,8 @@ class MovieCrudController extends CrudController
         CRUD::setModel(\App\Models\Movie::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/movie');
         CRUD::setEntityNameStrings('movie', 'movies');
+
+        $this->crud->addFields($this->getFieldsData());
     }
 
     /**
@@ -88,5 +134,13 @@ class MovieCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    protected function setupShowOperation()
+    {
+        // by default the Show operation will try to show all columns in the db table,
+        // but we can easily take over, and have full control of what columns are shown,
+        // by changing this config for the Show operation
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addColumns($this->getFieldsData(TRUE));
     }
 }
