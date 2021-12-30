@@ -27,10 +27,9 @@ class MovieRequest extends FormRequest
     {
         return [
             'movie_name' => 'required|min:5|max:255',
-            'release_year' => 'required|min:1960|max:2030',
+            'release_year' => 'required|numeric|min:1960|max:2030',
             'language' => 'required|min:3|max:255',
-            'genre_id' =>'required',
-            'producer_id' =>'required',
+
         ];
     }
 
@@ -58,12 +57,8 @@ class MovieRequest extends FormRequest
             'movie_name.min' =>'Movie name must be between 5 and 255 characters.',
             'movie_name.max' =>'Movie name must be between 5 and 255 characters.',
 
-            'release_year.min' => 'Year must be between 1960 and 2030.',
-            'release_year.max' => 'Year must be between 1960 and 2030.',
 
-            'genre_id.required' =>'Choose genre.',
-            
-            'producer_id.required' =>'Choose producer.',
+
         ];
     }
 }

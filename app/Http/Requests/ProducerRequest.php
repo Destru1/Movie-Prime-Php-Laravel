@@ -28,7 +28,7 @@ class ProducerRequest extends FormRequest
         return [
             'first_name' => 'required|min:2|max:255',
             'last_name' => 'required|min:2|max:255',
-            'age' => 'required|min:16|max:99',
+            'age' => 'required|numeric|min:16|max:99',
             'nationality' => 'required|min:4|max:255',
         ];
     }
@@ -62,8 +62,7 @@ class ProducerRequest extends FormRequest
             'last_name.max' =>'Last name must be between 2 and 255 characters.',
 
             'age.required' => 'Age is required',
-            'age.min' => 'Age must be between 16 and 99.',
-            'age.max' => 'Age must be between 16 and 99.',
+
 
 
 
