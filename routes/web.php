@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ProducerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,10 @@ Route::get('/', function () {
 });
 
 Route::get('/', [IndexController::class, 'index']);
+
+
+Route::get('/movies',[MovieController::class,'getAll']);
+
+
+
+Route::get('/producers',[ProducerController::class,'getAll']);
