@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProducerController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,16 @@ Route::get('/', function () {
 Route::get('/', [IndexController::class, 'index']);
 
 
+//Movies
 Route::get('/movies',[MovieController::class,'getAll']);
+Route::get('/movies/{id}',[MovieController::class,'getById']);
 
 
-
+//Producers
 Route::get('/producers',[ProducerController::class,'getAll']);
+
+Route::get('/producers/{id}',[ProducerController::class,'getById']);
+
+//Genres
+Route::get('/genres',[GenreController::class,'getAll']);
+Route::get('/genres/{id}',[GenreController::class,'getById']);
