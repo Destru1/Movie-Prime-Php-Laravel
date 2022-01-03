@@ -12,11 +12,23 @@
 @include('layouts.nav.nav')
 
    <body>
-   <br><br>
-   <div class="d-flex justify-content-center">
-   <div class="card box-shadow d-flex bg-dark">
-   <p class="card-text text-primary">{{$producer->first_name}} {{$producer->last_name}} {{$producer->age}} {{$producer->nationality}}</p>
-   </div>
+
+   <div id="main" class="wrapper style2">
+       <a class="btn btn-primary m-2 " href="/producers">Go back</a>
+
+       <div class="container d-flex justify-content-center ">
+           <div class="card d-flex " style="width: 25rem">
+               <div class="card-body bg-dark text-white ">
+
+                   <p class="card-text"><span class="bold">First name : </span>{{$producer->first_name}} </p>
+                   <p class="card-text"><span class="bold">Last name : </span>{{$producer->last_name}} </p>
+                   <p class="card-text"><span class="bold">Age: </span>{{$producer->age}}</p>
+                   <p class="card-text"><span class="bold">Nationality: </span>{{$producer->nationality}}</p>
+
+
+               </div>
+           </div>
+       </div>
    </div>
 
    </body>
