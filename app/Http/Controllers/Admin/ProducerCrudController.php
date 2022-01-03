@@ -19,16 +19,54 @@ class ProducerCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+
+ private function getFieldsData($show = FALSE) {
+             return [
+             [
+                'name'=> 'first_name',
+                'label' => 'First name',
+                'type'=> 'text'
+                 ],
+                    [
+                    'name'=> 'last_name',
+                    'label' => 'Last name',
+                    'type'=> 'text'
+                    ],
+                [
+                    'name'=> 'age',
+                    'label' => 'Age',
+                    'type'=> 'number'
+                ],
+                [
+                  'name'=> 'nationality',
+                   'label' => 'Nationality',
+                    'type'=> 'text'
+                    ],
+             [
+               'label' => "Producer picture",
+               'name' => "image",
+               'type' => 'image',
+               'crop' => true, // set to true to allow cropping, false to disable
+               'aspect_ratio' => 1, // omit or set to 0 to allow any aspect ratio
+                     ]
+             ];
+             }
+
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *
      * @return void
      */
+
+
     public function setup()
     {
         CRUD::setModel(\App\Models\Producer::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/producer');
         CRUD::setEntityNameStrings('producer', 'producers');
+
+         $this->crud->addFields($this->getFieldsData());
     }
 
     /**
@@ -39,19 +77,8 @@ class ProducerCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        //CRUD::column('id');
-        CRUD::column('first_name');
-        CRUD::column('last_name');
-        CRUD::column('age');
-        CRUD::column('nationality');
-        //CRUD::column('created_at');
-        //CRUD::column('updated_at');
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addColumns($this->getFieldsData(TRUE));
     }
 
     /**
@@ -89,4 +116,5 @@ class ProducerCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
 }

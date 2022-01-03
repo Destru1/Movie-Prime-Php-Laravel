@@ -21,6 +21,7 @@
             <div class="col-sm-3">
 <div class="card">
    <div class="card-body bg-dark">
+       <img src="{{$producer->image}}" class="card-img-top">
 <h3 class="card-title">{{$producer->first_name}} {{$producer->last_name}}</h3>
 <p class="card-text">Hello</p>
        <a href="{{ url('producers/'.$producer->id) }}" class="btn btn-primary" >View more</a>
