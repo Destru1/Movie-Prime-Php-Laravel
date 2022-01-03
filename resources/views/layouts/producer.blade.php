@@ -12,17 +12,27 @@
 @include('layouts.nav.nav')
 <body>
 
-<br><br><br>
-
-<div>
-    @foreach($producers->reverse() as $producer)
-        <p class="text-primary">{{$producer->first_name}}</p>
-        <p>{{$producer->last_name}}</p>
-        <p>{{$producer->age}}</p>
 
 
+<div id="main" class="wrapper style1">
+    <div class="container">
+        <div class="row">
+        @foreach($producers->reverse() as $producer)
+            <div class="col-sm-3">
+<div class="card">
+   <div class="card-body bg-dark">
+<h3 class="card-title">{{$producer->first_name}} {{$producer->last_name}}</h3>
+<p class="card-text">Hello</p>
+       <a href="{{ url('producers/'.$producer->id) }}" class="btn btn-primary" >View more</a>
+   </div>
 </div>
-@endforeach
+</div>
+  @endforeach
+        </div>
+    </div>
+</div>
+
+
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 @extends('layouts.nav.nav')
-
-<p>{{$genre->name}}</p>
+<br><br>
+<p class="text-primary">{{$genre->name}}</p>
 
 
