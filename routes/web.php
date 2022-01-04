@@ -24,6 +24,10 @@ Route::get('/', function () {
 Route::get('/', [IndexController::class, 'index']);
 
 
+Route::get('/search-year',[MovieController::class,'searchByYear'])->name('search-year');
+Route::get('/search-name',[MovieController::class,'searchByMovieName'])->name('search-name');
+Route::get('/extended-search',[MovieController::class,'searchByProducer']);
+
 //Movies
 Route::get('/movies',[MovieController::class,'getAll']);
 Route::get('/movies/{id}',[MovieController::class,'getById']);

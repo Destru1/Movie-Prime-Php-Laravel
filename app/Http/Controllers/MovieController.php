@@ -10,38 +10,64 @@ use App\Models\Movie_producers;
 use App\Models\Movie_genres;
 
 
-class MovieController extends Controller {
+class MovieController extends Controller
+{
 
-public function getAll(){
-$movies = Movie::all();
+    public function getAll(){
+    $movies = Movie::all();
 
-return view('layouts/movie',compact('movies'));
-}
+    return view('layouts/movie',compact('movies'));
+    }
 
-public function getById($id){
+public function getById($id)
+{
 
-$movie = Movie::where('id',$id)->first();
+    $movie = Movie::where('id',$id)->first();
 
 //Producers
-$movie_producers = Movie_producers::where('movie_id',$id)->pluck('producer_id');
+    $movie_producers = Movie_producers::where('movie_id',$id)->pluck('producer_id');
 
-$producers = array();
-foreach($movie_producers as $movie_producer)
-{
-$producers[] = Producer::all()->where('id',(int)$movie_producer);
-}
+    $producers = array();
+    foreach($movie_producers as $movie_producer)
+    {
+        $producers[] = Producer::all()->where('id',(int)$movie_producer);
+            }
 //Genres
 
-$movie_genres = Movie_genres::where('movie_id',$id)->pluck('genre_id');
+    $movie_genres = Movie_genres::where('movie_id',$id)->pluck('genre_id');
 
-$genres = array();
-foreach($movie_genres as $movie_genre)
-{
-$genres[] = Genre::all()->where('id',(int)$movie_genre);
-}
-return view('layouts.partial.movies.current-movie',compact('movie','producers','genres'));
+    $genres = array();
+    foreach($movie_genres as $movie_genre)
+    {
+    $genres[] = Genre::all()->where('id',(int)$movie_genre);
+    }
+    return view('layouts.partial.movies.current-movie',compact('movie','producers','genres'));
 }
 
+public function searchByYear(Request $request){
+    $search = $request->input('search-year');
+
+    $movies = Movie::query()
+    ->where('release_year','LIKE',"%{$search}%")
+        ->get();
+
+    return view('layouts/movie',compact('movies'));
+}
+
+public function searchByMovieName(Request $request){
+    $search = $request->input('search-name');
+
+    $movies = Movie::query()
+    ->where('movie_name','LIKE',"%{$search}%")
+        ->get();
+
+    return view('layouts/movie',compact('movies'));
+}
+
+public function searchByProducer(Request $request){
+    $producers = Producer::all();
+    return view('layouts/search', compact('producers'));
+    }
 }
 
 
