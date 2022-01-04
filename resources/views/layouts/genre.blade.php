@@ -1,20 +1,21 @@
 <html>
 <head>
     <title>List of genres</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
 
         #table{
             background-color: rgba(52,16,50,0.58);
-            text-align: center;
+            text-align:center;
 
         }
         #title{
             text-align: center;
         }
+        #more{
+            font-size: 15px;
+            width: 15%;
+        }
+
     </style>
 </head>
 @include('layouts.nav.nav')
@@ -26,9 +27,15 @@
 
         <h2 id="title">List of all genres</h2>
         <div class="card">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush d-flex justify-content-between ">
             @foreach($genres->reverse() as $genre)
-                    <li id="table" class="list-group-item"><strong>{{$genre->name}}</strong></li>
+                    <li id="table" class="list-group-item"><strong>{{$genre->name}}</strong>
+                        <span class="d-flex justify-content-sm-center">
+                            <a id="more" class="badge btn-success rounded-pill" href="{{url ('genres/'.$genre->id)}}">
+                                See more
+                            </a>
+                        </span>
+                    </li>
             @endforeach
         </div>
         </ul>

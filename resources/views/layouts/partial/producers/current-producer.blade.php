@@ -24,7 +24,14 @@
                    <p class="card-text"><span class="bold">Last name : </span>{{$producer->last_name}} </p>
                    <p class="card-text"><span class="bold">Age: </span>{{$producer->age}}</p>
                    <p class="card-text"><span class="bold">Nationality: </span>{{$producer->nationality}}</p>
-
+                   @if(!empty($movies))<p class="card-text"><span class="bold"> Movies:</span>
+                       @foreach($movies as $movie)
+                           @foreach($movie as $currentMovie)
+                                {{$currentMovie['movie_name']}}
+                   </p>
+                   @endforeach
+                   @endforeach
+                   @endif
 
                </div>
            </div>

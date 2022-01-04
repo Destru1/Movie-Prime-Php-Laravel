@@ -11,6 +11,7 @@
         <li><a href="/movies">Movies</a></li>
         <li><a href="/producers">Producers</a></li>
         <li><a href="/genres">Genres</a></li>
+        <li><a href="/extended-search">Search</a></li>
         <li><a href="/admin/login" class="button primary">Log In</a></li>
     </ul>
 </nav>
