@@ -4,7 +4,7 @@
     <style>
 
         #table{
-            background-color: rgba(52,16,50,0.58);
+            background-color: rgb(136,155,208);
             text-align:center;
 
         }
@@ -21,17 +21,17 @@
 @include('layouts.nav.nav')
 <body>
 
-<div id="main" class="wrapper style1">
+<div id="main" class="wrapper style2">
     <div class="container">
 
 
-        <h2 id="title">List of all genres</h2>
+        <h2 id="title">List of  genres</h2>
         <div class="card">
             <ul class="list-group list-group-flush d-flex justify-content-between ">
             @foreach($genres->reverse() as $genre)
                     <li id="table" class="list-group-item"><strong>{{$genre->name}}</strong>
                         <span class="d-flex justify-content-sm-center">
-                            <a id="more" class="badge btn-success rounded-pill" href="{{url ('genres/'.$genre->id)}}">
+                            <a id="more" class="badge btn-dark rounded-pill " href="{{url ('genres/'.$genre->id)}}">
                                 See more
                             </a>
                         </span>

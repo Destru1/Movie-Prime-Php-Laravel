@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>List of producers</title>
+    <title>Producer: {{$producer->first_name}} {{$producer->last_name}}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -14,7 +14,6 @@
    <body>
 
    <div id="main" class="wrapper style2">
-       <a class="btn btn-primary m-2 " href="/producers">Go back</a>
 
        <div class="container d-flex justify-content-center ">
            <div class="card d-flex " style="width: 25rem">
@@ -32,7 +31,7 @@
                    @endforeach
                    @endforeach
                    @endif
-
+                   <a class="btn btn-primary fs-6 d-flex justify-content-center" href="/producers">Go back to producers</a>
                </div>
            </div>
        </div>

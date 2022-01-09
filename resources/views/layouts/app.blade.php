@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>Welcome to movie system</title>
+    <title>Welcome to Movie-Prime</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -43,11 +43,11 @@
             <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
             <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
             <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="https://github.com/Destru1/Movie-Project-Php-Laravel" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
             <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
         </ul>
         <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>&copy; Made by Nikolay Nikolaev 2022.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
         </ul>
     </footer>
 

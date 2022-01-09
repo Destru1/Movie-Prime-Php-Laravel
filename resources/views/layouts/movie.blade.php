@@ -12,9 +12,10 @@
 @include('layouts.nav.nav')
 <body>
 
-<div id="main" class="wrapper style1">
+<div id="main" class="wrapper style2">
     <div class="container">
 <div class="row">
+    <h2 class="bold align-center">List of movies</h2>
     @foreach($movies->reverse() as $movie)
     <div class="col-sm-4  py-3">
 <div class="card">

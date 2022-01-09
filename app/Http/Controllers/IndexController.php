@@ -10,8 +10,8 @@ class IndexController extends Controller
         //Get data from DB in here and pass it to the view
 
         return view('index.index', [
-            'title' => 'Title',
-            'text' => 'Text',
+            'title' => 'Welcome to Movie-Prime ',
+            'text' =>'',
         ]);
     }
 }

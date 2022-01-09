@@ -4,8 +4,9 @@
 
 
 
-<div id="main" class="wrapper style1">
+<div id="main" class="wrapper style2">
     <div class="container">
+        <h2 class="bold align-center">List of producers</h2>
         <div class="row">
         @foreach($producers->reverse() as $producer)
             <div class="col-sm-4 py-3">
