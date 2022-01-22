@@ -23,7 +23,7 @@
                 <p class="card-text"><span class="bold">Age restricted: </span>No</p>
             @endif
           <!--  <img src="{{ asset('storage/articles/'.$movie->image) }}"> -->
-            <p class="card-text"><span class="bold">Movie genre: </span>@include('layouts.partial.movies.current-movie-genres')</p>
+            <p class="card-text"><span class="bold">Genre: </span>@include('layouts.partial.movies.current-movie-genres')</p>
             <p class="card-text"><span class="bold">Producer: </span>@include('layouts.partial.movies.current-movie-producers')</p>
             <a class="btn btn-primary fs-6 d-flex justify-content-center" href="/movies">Go back to movies</a>
         </div>

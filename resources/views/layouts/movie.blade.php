@@ -1,13 +1,7 @@
 <html>
 <head>
     <title>List of movies</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <style>
 
-    </style>
 </head>
 @include('layouts.nav.nav')
 <body>
@@ -18,7 +12,7 @@
     <h2 class="bold align-center">List of movies</h2>
     @foreach($movies->reverse() as $movie)
     <div class="col-sm-4  py-3">
-<div class="card">
+<div class="card bg-transparent">
     <img src="{{$movie->image}}" class="card-img-top">
     <div class="card-body  bg-dark" >
         <h2 class="card-title">{{$movie->movie_name}}</h2>

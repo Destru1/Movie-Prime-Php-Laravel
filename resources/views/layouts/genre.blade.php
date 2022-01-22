@@ -4,7 +4,7 @@
     <style>
 
         #table{
-            background-color: rgb(136,155,208);
+            background-color: rgb(136, 155, 208);
             text-align:center;
 
         }
@@ -26,7 +26,7 @@
 
 
         <h2 id="title">List of  genres</h2>
-        <div class="card">
+        <div class="card bg-transparent">
             <ul class="list-group list-group-flush d-flex justify-content-between ">
             @foreach($genres->reverse() as $genre)
                     <li id="table" class="list-group-item"><strong>{{$genre->name}}</strong>
