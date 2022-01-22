@@ -1,4 +1,5 @@
 <html>
+<title>Producers</title>
 @include('layouts.nav.nav')
 <body>
 

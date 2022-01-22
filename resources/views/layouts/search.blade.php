@@ -1,4 +1,6 @@
 @extends('layouts.nav.nav')
+<title> Search </title>
+
 <div class="wrapper style2" id="main">
     <div class="container" >
 <div class="container bg-dark p-2">
