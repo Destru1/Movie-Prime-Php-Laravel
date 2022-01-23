@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         if(DB::table('genres')->get()->count() == 0)
         {
-            DB::table('genres')->insert()
+            DB::table('genres')->insert(
             [
               [
                 'name'=>'Action',
@@ -28,7 +33,7 @@ class DatabaseSeeder extends Seeder
               ],
               [
                 'name'=>'Drama',
-                'created_at' => date('Y-m-d H:i:s')
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
               ],
               [
@@ -52,13 +57,14 @@ class DatabaseSeeder extends Seeder
 
         if(DB::table('producers')->get()->count() == 0)
         {
+        DB::table('producers')->insert(
          [
             [
                'first_name' =>'Jon',
                'last_name' =>'Watts',
                'age' => 40,
                'image' =>'https://upload.wikimedia.org/wikipedia/commons/2/26/Jon_Watts_by_Gage_Skidmore_2.jpg',
-               'nationality' =>'American'
+               'nationality' =>'American',
                'created_at' => date('Y-m-d H:i:s'),
                'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -108,6 +114,7 @@ class DatabaseSeeder extends Seeder
         //Seed for Movies table
         if (DB::table('movies')->get()->count() == 0)
         {
+         DB::table('movies')->insert(
           [
             [
                'movie_name'=> 'Spider-Man: No Way Home',
@@ -165,42 +172,33 @@ class DatabaseSeeder extends Seeder
 
            if(DB::table('movie_genres')->get()->count() == 0)
            {
+           DB::table('movie_genres')->insert(
             [
                 [
                     'movie_id'=>1,
                     'genre_id'=>1,
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
                 [
                     'movie_id'=>2,
                     'genre_id'=>4,
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
                 [
                     'movie_id'=>3,
                     'genre_id'=>2,
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
                 [
                     'movie_id'=>4,
                     'genre_id'=>2,
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
-                [
-                    'movie_id'=>5,
-                    'genre_id'=>3,
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ],
+            
                 [
                     'movie_id'=>5,
                     'genre_id'=>2,
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
             ]);
            }
@@ -212,36 +210,32 @@ class DatabaseSeeder extends Seeder
             //Seed for Movie-Producers
             if(DB::table('movie_producers')->get()->count() == 0)
             {
+            DB::table('movie_producers')->insert(
               [
                 [
                 'movie_id' => 1,
                 'producer_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
                 [
                 'movie_id' => 2,
                 'producer_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
                 [
                 'movie_id' => 3,
                 'producer_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
                 [
                 'movie_id' => 4,
                 'producer_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
                 [
                 'movie_id' => 5,
                 'producer_id' => 5,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+
                 ],
               ]);
             }
